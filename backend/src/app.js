@@ -1,11 +1,36 @@
-const express = require("express");
+import express from "express";
 const app = express();
-const port = 3000;
+
+//Mock
+const selecoes = [
+  {
+    id: 1,
+    selecao: "Brasil",
+    grupo: "G",
+  },
+  {
+    id: 2,
+    selecao: "Suíça",
+    grupo: "G",
+  },
+  {
+    id: 3,
+    selecao: "Sérvia",
+    grupo: "G",
+  },
+  {
+    id: 4,
+    selecao: "Camarões",
+    grupo: "G",
+  },
+];
 
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.get("/selecoes", (req, res) => {
+  res.status(200).send(selecoes);
 });
+
+export default app;
